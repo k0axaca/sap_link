@@ -1,12 +1,14 @@
 import React from 'react'
-// import Navbar from '../components/Navbar'
-// import NavbarClone from '../components/NavbarClone'
+import Navbar from '../components/Navbar'
+import NavbarClone from '../components/NavbarClone'
 
 class Home extends React.Component {
 
   render() {
     return (
       <div>
+        <Navbar />
+        <NavbarClone />
         <section className="hero is-default is-bold">
           <div className="hero-body">
             <div className="container">
