@@ -6,8 +6,8 @@ const Navbar = () => {
     <nav className="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://cssninja.io">
-             <div className="title">Servicio</div>
+          <a className="navbar-item" href="#">
+             <div className="title">Saplink</div>
           </a>
 
           <a className="navbar-item is-hidden-desktop is-hidden-tablet">

@@ -15,7 +15,7 @@ class Home extends React.Component {
               <div className="columns is-vcentered">
                 <div className="column is-5 is-offset-1 landing-caption">
                   <h1 className="title is-1 is-bold is-spaced">
-                      Learn, Collaborate.
+                      Grow your plant collection and trade with other plants lovers.
                   </h1>
                   <h2 className="subtitle is-5 is-muted">Lorem ipsum sit dolor amet is a dummy text used by typography industry </h2>
                   <p>
@@ -25,8 +25,8 @@ class Home extends React.Component {
                   </p>
                 </div>
                 <div className="column is-5 is-offset-1">
-                  <figure className="image is-4by3">
-                      <img src={process.env.PUBLIC_URL + '/worker.svg'} alt="Description" />
+                  <figure className="image">
+                      <img src='/womenplants2.png' alt="Description" />
                   </figure>
                 </div>
               </div>
@@ -39,8 +39,8 @@ class Home extends React.Component {
         <section className="section section-feature-grey is-medium">
           <div className="container">
             <div className="title-wrapper has-text-centered">
-              <h2 className="title is-2">Great Power Comes </h2>
-              <h3 className="subtitle is-5 is-muted">With great Responsability</h3>
+              <h2 className="title is-2">Make an Offer or Trade</h2>
+              {/* <h3 className="subtitle is-5 is-muted">Make an Offer</h3> */}
               <div className="divider is-centered"></div>
             </div>
 
