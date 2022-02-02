@@ -1,3 +1,4 @@
+import { FETCH_SERVICES } from "../types";
 
 const services = [
   {
@@ -25,9 +26,8 @@ const services = [
 
 
 export const  fetchServices = () => {
-    debugger
     return {
-        type: 'FETCH_SERVICES',
+        type: FETCH_SERVICES,
         services: services
     }
 }

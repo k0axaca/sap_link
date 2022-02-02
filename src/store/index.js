@@ -1,15 +1,10 @@
 import { createStore, combineReducers } from 'redux';
+import servicesReducer from '../reducers';
 
 const initStore = () => {
 
   const serviceApp = combineReducers({
-    service: (state =  {items: []}, action) => {
-      debugger 
-      if (action.type === 'FETCH_SERVICES') {
-        return {...state, items: action.services}
-      } 
-      return state
-    }
+    service: servicesReducer,
   });
     
     const store = createStore(serviceApp);
