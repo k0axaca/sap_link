@@ -4,12 +4,13 @@ import servicesReducer from '../reducers';
 const addLoggerToDispatch = (store) => {
   const dispatch = store.dispatch;
 
+  // dispatch function with logging
   return action => {  // action is the action object
     console.group(action.type);
-    console.log('prev state', store.getState());
-    console.log('action', action);
+    console.log('%c prev state', 'color: gray', store.getState());
+    console.log('%c action', 'color: blue', action);
     const returnValue = dispatch(action);
-    console.log('next state', store.getState());
+    console.log('%c next state', 'color: green', store.getState());
     console.groupEnd(action.type);
     return returnValue;
   }
