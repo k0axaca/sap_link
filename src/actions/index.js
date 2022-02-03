@@ -27,6 +27,14 @@ const services = [
 
 
 export const  fetchServices = () => {
+
+  db.collection('services')
+    .get()
+    .then(snapshot => {
+      const data = snapshot.data();
+    })
+
+
     return {
         type: FETCH_SERVICES,
         services: services
