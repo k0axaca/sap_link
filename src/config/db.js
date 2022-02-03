@@ -1,10 +1,9 @@
 import firebase from "firebase/compat/app";
-import { initializeApp } from "firebase/app";
 import "firebase/compat/auth";
 import 'firebase/compat/firestore'
 
 // TODO: Replace the following with your app's Firebase project configuration
-const firebaseApp = initializeApp({
+const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyBjXv-tZU4XJP6S1qBMNQ0CQPzHoTE6d8M",
   authDomain: "saplink-25865.firebaseapp.com",
   projectId: "saplink-25865",
@@ -16,8 +15,9 @@ const firebaseApp = initializeApp({
 
 // Initialize Firebase
 
+const db = firebaseApp.firestore();
 
-export const db = firebaseApp.firestore();
+export default db;
 
 
 const { Timestamp } = firebase.firestore
