@@ -1,4 +1,5 @@
 import { FETCH_SERVICES } from "../types";
+import db from '../config/db';
 
 const services = [
   {
