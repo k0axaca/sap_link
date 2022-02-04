@@ -26,17 +26,21 @@ const services = [
 ];
 
 
-export const  fetchServices = () => {
+export const fetchServices = () => {
 
   db.collection('services')
     .get()
     .then(snapshot => {
-      const data = snapshot.data();
+      snapshot.docs.forEach(doc => {
+        debugger
+        const service = doc.data();
+        console.log(service);
     })
+  })
 
 
-    return {
-        type: FETCH_SERVICES,
-        services: services
-    }
+  return {
+      type: FETCH_SERVICES,
+      services: services
+  }
 }
