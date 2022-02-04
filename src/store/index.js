@@ -6,6 +6,7 @@ const addLoggerToDispatch = (store) => {
 
   // dispatch function with logging
   return action => {  // action is the action object
+    debugger
     console.group(action.type);
     console.log('%c prev state', 'color: gray', store.getState());
     console.log('%c action', 'color: blue', action);
@@ -16,18 +17,36 @@ const addLoggerToDispatch = (store) => {
   }
 }
 
+const addPromiseToDispatch = store => {
+  const dispatch = store.dispatch;
+
+  return action => {
+    debugger
+    if (typeof action.then === 'function') {
+      return action.then(dispatch);
+    }
+
+    return dispatch(action);
+  }
+    }
+
+
+
 const initStore = () => {
 
   const serviceApp = combineReducers({
     service: servicesReducer,
   });
     
-    const store = createStore(serviceApp);
-
+  const store = createStore(serviceApp);
+  
+  if (process.env.NODE_ENV !== 'production') {
     store.dispatch = addLoggerToDispatch(store);
-
-    return store
   }
+  store.dispatch = addPromiseToDispatch(store);
+
+  return store
+}
 
 export default initStore;
 
