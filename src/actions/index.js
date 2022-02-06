@@ -3,13 +3,11 @@ import db from '../config/db';
 
 // actions should only return objects
 export const fetchServices = () => {
-  debugger
   return db
       .collection('services')
       .get()
       .then(snapshot => {
-        const services = snapshot.docs.map(doc => doc.data())
-        debugger
+        const services = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
         return {
           type: FETCH_SERVICES_SUCCESS,
           services: services

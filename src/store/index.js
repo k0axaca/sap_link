@@ -6,7 +6,6 @@ const addLoggerToDispatch = (store) => {
 
   // dispatch function with logging
   return action => {  // action is the action object
-    debugger
     console.group(action.type);
     console.log('%c prev state', 'color: gray', store.getState());
     console.log('%c action', 'color: blue', action);
@@ -21,16 +20,13 @@ const addPromiseToDispatch = store => {
   const dispatch = store.dispatch;
 
   return action => {
-    debugger
     if (typeof action.then === 'function') {
       return action.then(dispatch);
     }
 
     return dispatch(action);
   }
-    }
-
-
+}
 
 const initStore = () => {
 
