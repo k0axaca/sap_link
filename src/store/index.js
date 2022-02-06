@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import servicesReducer from '../reducers';
+import serviceApp from '../reducers';
 
 const logger = (store) => {
   const dispatch = store.dispatch;
@@ -29,10 +29,6 @@ const promise = store => {
 }
 
 const initStore = () => {
-
-  const serviceApp = combineReducers({
-    service: servicesReducer,
-  });
     
   const store = createStore(serviceApp);
   
