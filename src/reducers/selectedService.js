@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 const selectedService = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_SERVICE_SUCCESS:
-      return {item: action.service};
+      return {...state, item: action.service};
     default:
       return state;
   }

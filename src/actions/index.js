@@ -1,4 +1,4 @@
-import { FETCH_SERVICES_SUCCESS } from "../types";
+import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS } from "../types";
 import db from '../config/db';
 
 // actions should only return objects
@@ -11,6 +11,19 @@ export const fetchServices = () => {
         return {
           type: FETCH_SERVICES_SUCCESS,
           services: services
+        }
+      })
+}
+
+export const fetchServiceById = (serviceId) => {
+  return db
+      .collection('services')
+      .doc(serviceId)
+      .get()
+      .then(snapshot => {
+        return {
+          type: FETCH_SERVICE_SUCCESS,
+          service: {...snapshot.data(), id: snapshot.id}
         }
       })
 }

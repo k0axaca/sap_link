@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchServiceById } from '../actions';
 
-const ServiceDetail = () => {
+const ServiceDetail = props => {
 
   const { serviceId } = useParams();
+
+  useEffect(() => {
+    props.dispatch(fetchServiceById(serviceId));
+  }, []);
+
+  const { service } = props;
 
   return (
     <section className="hero is-fullheight is-default is-bold">
@@ -11,15 +20,15 @@ const ServiceDetail = () => {
           <div className="columns is-vcentered">
             <div className="column is-5">
               <figure className="image is-4by3">
-                <img src="" alt="Description" />
+                <img src={service.image} alt="Description" />
               </figure>
             </div>
             <div className="column is-6 is-offset-1">
               <h1 className="title is-2">
-                  Hardcoded Title
+                  {service.title}
               </h1>
               <h2 className="subtitle is-4">
-                  Hardcoded Description
+                  {service.description}
               </h2>
               <br />
               <p className="has-text-centered">
@@ -44,4 +53,8 @@ const ServiceDetail = () => {
   );
 }
 
-export default ServiceDetail;
+const mapStateToProps = state => ({
+  service: state.selectedService.item,
+});
+
+export default connect(mapStateToProps)(ServiceDetail);
