@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import servicesReducer from '../reducers';
 
-const addLoggerToDispatch = (store) => {
+const logger = (store) => {
   const dispatch = store.dispatch;
 
   // dispatch function with logging
@@ -16,7 +16,7 @@ const addLoggerToDispatch = (store) => {
   }
 }
 
-const addPromiseToDispatch = store => {
+const promise = store => {
   const dispatch = store.dispatch;
 
   return action => {
@@ -37,9 +37,9 @@ const initStore = () => {
   const store = createStore(serviceApp);
   
   if (process.env.NODE_ENV !== 'production') {
-    store.dispatch = addLoggerToDispatch(store);
+    store.dispatch = logger(store);
   }
-  store.dispatch = addPromiseToDispatch(store);
+  store.dispatch = promise(store);
 
   return store
 }

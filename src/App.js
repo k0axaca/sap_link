@@ -9,10 +9,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
-
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import ServiceDetailPage from './pages/ServiceDetail';
 
 const store = initStore();
 
@@ -29,6 +26,9 @@ function App() {
             </Route>
             <Route path="/register">
               <RegisterPage />
+            </Route>
+            <Route path="/services/:serviceId">
+              <ServiceDetailPage />
             </Route>
             <Route path="/services">
               <ServicesPage />
