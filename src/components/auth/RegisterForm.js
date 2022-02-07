@@ -1,93 +1,153 @@
 import { useForm } from "react-hook-form";
 
 const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const getFormData = (data) => console.log(data);
 
-  const { register, handleSubmit, watch, formState: {errors} } = useForm();
-  const getFormData = data => console.log(data);
-
-  // console.log(watch("password")); // watch input value by passing the name of it
+  console.log(watch("password-confirmation")); // watch input value by passing the name of it
 
   return (
     <form onSubmit={handleSubmit(getFormData)}>
       <div className="field">
         <div className="control">
-          <input {...register("email", {required: true}, { pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} className="input is-large" type="email" placeholder="Your Email" autoFocus="" autoComplete="email" />
-          { errors.email &&
+          <input
+            {...register(
+              "email",
+              { required: true },
+              {
+                pattern:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              }
+            )}
+            className="input is-large"
+            type="email"
+            placeholder="Your Email"
+            autoFocus=""
+            autoComplete="email"
+          />
+          {errors.email && (
             <div className="form-error">
-              <span className="help is-danger">Email is required</span>
-              <span className="help is-danger">
-                Email address is not valid
-              </span>
+              {errors.email.type === "required" && (
+                <span className="help is-danger">Email is required</span>
+              )}
+              {errors.email.type === "pattern" && (
+                <span className="help is-danger">
+                  Email address is not valid
+                </span>
+              )}
             </div>
-          }
+          )}
         </div>
       </div>
       <div className="field">
         <div className="control">
           <input
-            {...register("fullName", { required: true, minLength: 3, maxLength: 20 })}
+            {...register("fullName", {
+              required: true,
+              minLength: 5,
+              maxLength: 20,
+            })}
             className="input is-large"
             type="text"
             placeholder="Full Name"
             autoFocus=""
           />
-          { errors.fullName &&
+          {errors.fullName && (
             <div className="form-error">
-              <span className="help is-danger">Name is required</span>
-              <span className="help is-danger">Name is not valid</span>
+              {errors.fullName.type === "required" && (
+                <span className="help is-danger">Name is required</span>
+              )}
+              {errors.fullName.type === "minLength" && (
+                <span className="help is-danger">
+                  Minimun length is 5 characters
+                </span>
+              )}
             </div>
-          }
+          )}
         </div>
       </div>
       <div className="field">
         <div className="control">
           <input
-            {...register("avatar",  {required: true}, { pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi})}
+            {...register(
+              "avatar",
+              { required: true },
+              {
+                pattern:
+                  /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi,
+              }
+            )}
             className="input is-large"
             type="text"
             placeholder="Avatar"
             autoFocus=""
           />
-          { errors.avatar &&
+          {errors.avatar && (
             <div className="form-error">
-              <span className="help is-danger">Avatar is required</span>
-              <span className="help is-danger">Avatar is not valid</span>
+              {errors.avatar.type === "required" && (
+                <span className="help is-danger">Avatar is required</span>
+              )}
+              {errors.avatar.type === "pattern" && (
+                <span className="help is-danger">Avatar is not valid</span>
+              )}
             </div>
-          }
+          )}
         </div>
       </div>
       <div className="field">
         <div className="control">
           <input
-            {...register("password", {required: true, minLength: 6})}
+            {...register("password", { required: true, minLength: 6 })}
             className="input is-large"
             type="password"
             placeholder="Your Password"
             autoComplete="current-password"
           />
-          { errors.password && 
+          {errors.password && (
             <div className="form-error">
-              <span className="help is-danger">Password is required</span>
+              {errors.password.type === "minLength" && (
+                <span className="help is-danger">
+                  Password must be 6 characters long
+                </span>
+              )}
+              {errors.password.type === "required" && (
+                <span className="help is-danger">Password is required</span>
+              )}
             </div>
-          }
+          )}
         </div>
       </div>
       <div className="field">
         <div className="control">
           <input
-            {...register("password-confirmation", {required: true, minLength: 6})}
+            {...register("passwordConfirmation", {
+              required: true,
+              minLength: 6,
+            })}
             className="input is-large"
             type="password"
             placeholder="Repeat Password"
             autoComplete="current-password"
           />
-          { errors.passwordConfirmation &&
+          {errors.passwordConfirmation && (
             <div className="form-error">
-              <span className="help is-danger">
-                Password Confirmation is required
-              </span>
+              {errors.passwordConfirmation.type === "minLength" && (
+                <span className="help is-danger">
+                  Password must be 6 characters long
+                </span>
+              )}
+              {errors.passwordConfirmation.type === "required" && (
+                <span className="help is-danger">
+                  Password Confirmation is required
+                </span>
+              )}
             </div>
-          }
+          )}
         </div>
       </div>
       <button
@@ -97,7 +157,7 @@ const RegisterForm = () => {
         Register
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;
