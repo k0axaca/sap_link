@@ -17,6 +17,10 @@ const ServiceDetail = props => {
 
   const { service } = props;
 
+  if (serviceId !== service.id) {
+    return <Spinner />;
+  }
+  
   if (isFetching && !service.id) {
     return <Spinner />
   }
