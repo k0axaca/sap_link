@@ -1,3 +1,5 @@
+import RegisterForm from "../components/auth/RegisterForm";
+
 const Register = () => {
   return (
     <div className="auth-page">
@@ -9,92 +11,7 @@ const Register = () => {
             <figure className="avatar">
               <img src="https://via.placeholder.com/128x128" />
             </figure>
-            <form>
-              <div className="field">
-                <div className="control">
-                  <input
-                    name="email"
-                    className="input is-large"
-                    type="email"
-                    placeholder="Your Email"
-                    autoFocus=""
-                    autoComplete="email"
-                  />
-                  <div className="form-error">
-                    <span className="help is-danger">Email is required</span>
-                    <span className="help is-danger">
-                      Email address is not valid
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <input
-                    name="fullName"
-                    className="input is-large"
-                    type="text"
-                    placeholder="Full Name"
-                    autoFocus=""
-                  />
-                  <div className="form-error">
-                    <span className="help is-danger">Name is required</span>
-                    <span className="help is-danger">Name is not valid</span>
-                  </div>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <input
-                    name="avatar"
-                    className="input is-large"
-                    type="text"
-                    placeholder="Avatar"
-                    autoFocus=""
-                  />
-                  <div className="form-error">
-                    <span className="help is-danger">Avatar is required</span>
-                    <span className="help is-danger">Avatart is not valid</span>
-                  </div>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <input
-                    name="password"
-                    className="input is-large"
-                    type="password"
-                    placeholder="Your Password"
-                    autoComplete="current-password"
-                  />
-                  <div className="form-error">
-                    <span className="help is-danger">Password is required</span>
-                  </div>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <input
-                    name="passwordConfirmation"
-                    className="input is-large"
-                    type="password"
-                    placeholder="Repeat Password"
-                    autoComplete="current-password"
-                  />
-                  <div className="form-error">
-                    <span className="help is-danger">
-                      Password Confirmation is required
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="button is-block is-info is-large is-fullwidth"
-              >
-                Register
-              </button>
-            </form>
+            <RegisterForm />
           </div>
           <p className="has-text-grey">
             <a>Sign In With Google</a>&nbsp;
