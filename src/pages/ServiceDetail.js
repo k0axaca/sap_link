@@ -6,10 +6,11 @@ import { fetchServiceById } from '../actions';
 const ServiceDetail = props => {
 
   const { serviceId } = useParams();
+  const { dispatch } = props;
 
   useEffect(() => {
-    props.dispatch(fetchServiceById(serviceId));
-  }, []);
+    dispatch(fetchServiceById(serviceId));
+  }, [serviceId, dispatch]);
 
   const { service } = props;
 
@@ -32,15 +33,15 @@ const ServiceDetail = props => {
               </h2>
               <br />
               <p className="has-text-centered">
-                <a className="button is-medium is-info is-outlined">
+                <button className="button is-medium is-info is-outlined">
                   Learn more
-                </a>
+                </button>
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="hero-foot">
+      {/* <div className="hero-foot">
         <div className="container">
           <div className="tabs is-centered">
             <ul>
@@ -48,7 +49,7 @@ const ServiceDetail = props => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
   </section> 
   );
 }

@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import serviceApp from '../reducers';
 
 const logger = (store) => {
