@@ -12,12 +12,14 @@ const RegisterForm = () => {
       <div className="field">
         <div className="control">
           <input {...register("email", {required: true}, { pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} className="input is-large" type="email" placeholder="Your Email" autoFocus="" autoComplete="email" />
-          <div className="form-error">
-            <span className="help is-danger">Email is required</span>
-            <span className="help is-danger">
-              Email address is not valid
-            </span>
-          </div>
+          { errors.email &&
+            <div className="form-error">
+              <span className="help is-danger">Email is required</span>
+              <span className="help is-danger">
+                Email address is not valid
+              </span>
+            </div>
+          }
         </div>
       </div>
       <div className="field">
@@ -29,10 +31,12 @@ const RegisterForm = () => {
             placeholder="Full Name"
             autoFocus=""
           />
-          <div className="form-error">
-            <span className="help is-danger">Name is required</span>
-            <span className="help is-danger">Name is not valid</span>
-          </div>
+          { errors.fullName &&
+            <div className="form-error">
+              <span className="help is-danger">Name is required</span>
+              <span className="help is-danger">Name is not valid</span>
+            </div>
+          }
         </div>
       </div>
       <div className="field">
@@ -44,10 +48,12 @@ const RegisterForm = () => {
             placeholder="Avatar"
             autoFocus=""
           />
-          <div className="form-error">
-            <span className="help is-danger">Avatar is required</span>
-            <span className="help is-danger">Avatar is not valid</span>
-          </div>
+          { errors.avatar &&
+            <div className="form-error">
+              <span className="help is-danger">Avatar is required</span>
+              <span className="help is-danger">Avatar is not valid</span>
+            </div>
+          }
         </div>
       </div>
       <div className="field">
@@ -59,9 +65,11 @@ const RegisterForm = () => {
             placeholder="Your Password"
             autoComplete="current-password"
           />
-          <div className="form-error">
-            <span className="help is-danger">Password is required</span>
-          </div>
+          { errors.password && 
+            <div className="form-error">
+              <span className="help is-danger">Password is required</span>
+            </div>
+          }
         </div>
       </div>
       <div className="field">
@@ -73,11 +81,13 @@ const RegisterForm = () => {
             placeholder="Repeat Password"
             autoComplete="current-password"
           />
-          <div className="form-error">
-            <span className="help is-danger">
-              Password Confirmation is required
-            </span>
-          </div>
+          { errors.passwordConfirmation &&
+            <div className="form-error">
+              <span className="help is-danger">
+                Password Confirmation is required
+              </span>
+            </div>
+          }
         </div>
       </div>
       <button
