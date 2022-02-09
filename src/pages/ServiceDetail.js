@@ -10,12 +10,13 @@ const ServiceDetail = props => {
   const { dispatch, isFetching } = props;
 
   useEffect(() => {
-    dispatch(resetPreviousService());
-    dispatch(requestService())
+    // dispatch(resetPreviousService());
+    // dispatch(requestService())
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
 
   const { service } = props;
+
 
   if (isFetching || serviceId !== service.id) {
     return <Spinner />;

@@ -1,37 +1,36 @@
-import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS, REQUEST_SERVICE } from "../types";
+import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS, REQUEST_SERVICE} from "../types";
 import * as api from "../api";
 
-export const requestService = () => (
-  {
-    type: REQUEST_SERVICE
-  }
-)
-
-export const resetPreviousService = () => (
-  {
-    type: FETCH_SERVICE_SUCCESS,
-    service: {}
-  }
-)
-// actions should only return objects
-export const fetchServices = () => 
-  api
+export const fetchServices = () => dispatch =>
+   api
     .fetchServices()
-    .then(services => (
+    .then(services => dispatch(
       {
         type: FETCH_SERVICES_SUCCESS,
-        services: services
+        services
       }
     )
-  );
+  )
 
-export const fetchServiceById = serviceId => 
-  api
+
+export const fetchServiceById = serviceId => dispatch => {
+  dispatch({type: FETCH_SERVICE_SUCCESS, service: {}})
+  dispatch({type: REQUEST_SERVICE})
+  return api
     .fetchServiceById(serviceId)
-    .then(service => (
+    .then(service => dispatch(
       {
         type: FETCH_SERVICE_SUCCESS,
-        service: service
+        service
       }
     )
-  );
+  )
+}
+
+export const register = (registerFormData) => dispatch => {
+  return api
+    .register({...registerFormData})
+    .then(_ => {
+      return true
+    }, errorMessage => Promise.reject(errorMessage))
+}

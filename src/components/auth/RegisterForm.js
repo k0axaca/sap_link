@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const getFormData = (data) => console.log(data);
+  // const getFormData = (data) => console.log(data);
 
-  console.log(watch("password-confirmation")); // watch input value by passing the name of it
+  // console.log(watch("passwordConfirmation")); // watch input value by passing the name of it
 
   return (
-    <form onSubmit={handleSubmit(getFormData)}>
+    <form onSubmit={handleSubmit(props.onRegister)}>
       <div className="field">
         <div className="control">
           <input
