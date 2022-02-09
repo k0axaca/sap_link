@@ -1,18 +1,23 @@
+import { useState } from 'react'
 import { register } from '../actions'
 import RegisterForm from "../components/auth/RegisterForm";
+import { useToasts } from 'react-toast-notifications';
+import { Redirect } from 'react-router-dom'
 
 const Register = (props) => {
 
+  const [ redirect, setRedirect ] = useState(false)
+  const { addToast } = useToasts()
+
   const registerUser = (userData) => {
+    // props.history.push('/')
     register(userData)
       .then(
-        _ => {
-          debugger
-        },
-        errorMessage => {
-          debugger
-        })
+        _ => setRedirect(true),
+        errorMessage => addToast(errorMessage, { appearance: 'error', autoDismiss: true, autoDismissTimeout: 3000 }))
   }
+
+  if (redirect) { return <Redirect to="/" />}
 
   return (
     <div className="auth-page">
@@ -22,9 +27,9 @@ const Register = (props) => {
           <p className="subtitle has-text-grey">Please Register to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="https://via.placeholder.com/128x128" />
+              <img src="https://via.placeholder.com/128x128" alt="Company Logo" />
             </figure>
-            <RegisterForm onRegister={registerUser}/>
+            <RegisterForm onRegister={registerUser} />
           </div>
           <p className="has-text-grey">
             <a>Sign In With Google</a>&nbsp;
@@ -34,8 +39,14 @@ const Register = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+
+export default Register
+
+
+
+
+
 
