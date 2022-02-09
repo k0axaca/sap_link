@@ -21,7 +21,7 @@ export const fetchServices = () => {
 // AUTH //
 
 const createUserProfile = (userProfile) => 
-  db.collection('profile')
+  db.collection('profiles')
     .doc(userProfile.uid)
     .set(userProfile)
 
@@ -41,7 +41,8 @@ export const login = ({email, password}) =>
   firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(error => Promise.reject(error.message))
 
-export const onAuthStateChanged = () => firebase.auth().onAuthStateChanged(authUser => authUser)
+export const onAuthStateChanged = onAuthCallback => 
+  firebase.auth().onAuthStateChanged(onAuthCallback)
 
 export const getUserProfile = uid =>
   db.collection('profiles')

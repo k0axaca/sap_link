@@ -29,7 +29,7 @@ export const fetchServiceById = serviceId => dispatch => {
 
 export const register = (registerFormData) => api.register({...registerFormData})
 export const login = loginData => api.login({...loginData})
-export const onAuthStateChanged = () => api.onAuthStateChanged()
+export const onAuthStateChanged = onAuthCallback => api.onAuthStateChanged(onAuthCallback)
 
 export const storeAuthUser = authUser => dispatch => {
   if (authUser) {
