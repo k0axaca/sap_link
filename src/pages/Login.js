@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useToasts } from "react-toast-notifications";
 import { Redirect } from "react-router-dom";
-
 import { login } from "../actions";
 
 const Login = () => {
@@ -10,20 +9,18 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const { addToast } = useToasts();
 
-  const onLogin = (loginData) => {
-    console.log(loginData);
+  const onLogin = loginData => {
     login(loginData).then(
       (_) => setRedirect(true),
       (errorMessage) =>
         addToast(errorMessage, {
           appearance: "error",
           autoDismiss: true,
-          autoDismissTimeout: 3000,
+          autoDismissTimeout: 1500,
         })
     );
   };
