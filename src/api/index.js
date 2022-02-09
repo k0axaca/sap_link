@@ -41,4 +41,13 @@ export const login = ({email, password}) =>
   firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(error => Promise.reject(error.message))
 
+export const onAuthStateChanged = () => firebase.auth().onAuthStateChanged(authUser => authUser)
+
+export const getUserProfile = uid =>
+  db.collection('profiles')
+    .doc(uid)
+    .get()
+    .then(snapshot => ({uid, ...snapshot.data()}))
+
+
 
