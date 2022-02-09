@@ -1,15 +1,17 @@
-import { connect } from 'react-redux'
 import { register } from '../actions'
 import RegisterForm from "../components/auth/RegisterForm";
 
 const Register = (props) => {
 
   const registerUser = (userData) => {
-    props.dispatch(register(userData))
-      .then((_) => {
-      }, (errorMessage) => {
-        alert(errorMessage)
-      })
+    register(userData)
+      .then(
+        _ => {
+          debugger
+        },
+        errorMessage => {
+          debugger
+        })
   }
 
   return (
@@ -35,5 +37,5 @@ const Register = (props) => {
   );
 };
 
-export default connect()(Register);
+export default Register;
 
