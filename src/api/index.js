@@ -37,20 +37,8 @@ export const register = async ({email, password, fullName, avatar}) => {
   }
 }
 
+export const login = ({email, password}) => 
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .catch(error => Promise.reject(error.message))
 
 
-// export const register = ({ email, password, fullName, avatar }) => {
-//   return firebase
-//     .auth()
-//     .createUserWithEmailAndPassword(email, password)
-//     .then(({ user }) => {
-//       const userRef = db.collection('users').doc(user.uid);
-//       userRef.set({
-//         fullName,
-//         avatar,
-//         email,
-//         uid: user.uid
-//       })
-//       return user
-//     })
-// }
