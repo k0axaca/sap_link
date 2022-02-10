@@ -4,7 +4,6 @@ const RegisterForm = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   // const getFormData = (data) => console.log(data);

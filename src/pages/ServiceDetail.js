@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchServiceById, requestService, resetPreviousService } from '../actions';
+import { fetchServiceById } from '../actions';
 import Spinner from '../components/Spinner';
 
 const ServiceDetail = props => {
