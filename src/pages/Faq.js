@@ -1,4 +1,5 @@
+import withAuthorization from "../components/hoc/withAuthorization"
 
-const Faq = () => <h1>Faq</h1>;
+const Faq = () => <h1>I am FAQ Page</h1>
 
-export default Faq;
+export default withAuthorization(Faq)
