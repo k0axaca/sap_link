@@ -1,3 +1,6 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
+
+
 import React from "react";
 import { connect } from "react-redux"; //connect is a function that takes a component as an argument and returns a new component
 import ServiceItem from "../components/service/ServiceItem";

@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
+
 const Hero = () => {
   return (
     <section className="hero is-default is-bold">

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useForm } from "react-hook-form";
 
 const RegisterForm = (props) => {

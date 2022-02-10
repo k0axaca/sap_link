@@ -1,3 +1,6 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
+/* eslint-disable */
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useToasts } from "react-toast-notifications";
@@ -37,7 +40,7 @@ const Login = () => {
           <p className="subtitle has-text-grey">Please login to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="https://via.placeholder.com/128x128" />
+              <img src="https://via.placeholder.com/128x128" alt=""/>
             </figure>
             <form onSubmit={handleSubmit(onLogin)}>
               <div className="field">

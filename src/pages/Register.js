@@ -1,3 +1,6 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
+
+
 import { useState } from 'react'
 import { register } from '../actions'
 import RegisterForm from "../components/auth/RegisterForm";
