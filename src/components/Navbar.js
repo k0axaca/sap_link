@@ -1,6 +1,8 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
+  const { user, isAuth } = props.auth;
   return (
     <nav
       id={props.id || ""}
@@ -10,7 +12,7 @@ const Navbar = (props) => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link to='/' className="navbar-item" href="#">
+          <Link to="/" className="navbar-item">
             <div className="title">Saplink</div>
           </Link>
 
@@ -79,14 +81,19 @@ const Navbar = (props) => {
           </div>
 
           <div className="navbar-end">
-            <Link to='/' className="navbar-item is-secondary">
+            {user && (
+              <div className="navbar-item is-secondary user-welcome">
+                {`Hi ${user.fullName}`}
+              </div>
+            )}
+            <Link to="/" className="navbar-item is-secondary">
               Home
             </Link>
-            <Link to='/faq' className="navbar-item is-secondary">
-              Faq
-            </Link>
-            <Link to='/services' className="navbar-item is-secondary">
+            <Link to="/services" className="navbar-item is-secondary">
               Services
+            </Link>
+            <Link to="/faq" className="navbar-item is-secondary">
+              Faq
             </Link>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Dropdown</a>
@@ -97,17 +104,29 @@ const Navbar = (props) => {
                 <a className="navbar-item">Dropdown item</a>
               </div>
             </div>
-            <Link to='/login'
-              className="navbar-item is-secondary modal-trigger"
-              data-modal="auth-modal"
-            >
-              Log in
-            </Link>
-            <Link to='/register' className="navbar-item">
-              <span className="button signup-button rounded secondary-btn raised">
-                Sign up
-              </span>
-            </Link>
+            {!isAuth && (
+              <React.Fragment>
+                <Link
+                  to="/login"
+                  className="navbar-item is-secondary modal-trigger"
+                  data-modal="auth-modal"
+                >
+                  Login
+                </Link>
+                <Link to="/register" className="navbar-item">
+                  <span className="button signup-button rounded secondary-btn raised">
+                    Register
+                  </span>
+                </Link>
+              </React.Fragment>
+            )}
+            {isAuth && (
+              <Link to="/" className="navbar-item">
+                <span className="button signup-button is-danger rounded raised">
+                  Logout
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
