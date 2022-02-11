@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions';
 import Spinner from '../components/Spinner';
-import Modal from '../components/Modal';
+import OfferModal from '../components/service/OfferModal';
 
 const ServiceDetail = props => {
 
@@ -16,12 +16,10 @@ const ServiceDetail = props => {
 
   const { service } = props;
 
-
   if (isFetching || serviceId !== service.id) {
     return <Spinner />;
   }
   
-
   return (
     <section className="hero is-fullheight is-default is-bold">
       <div className="hero-body">
@@ -41,7 +39,7 @@ const ServiceDetail = props => {
               </h2>
               <br />
               <div className="has-text-centered">
-                <Modal />
+                <OfferModal service={service}/>
               </div>
             </div>
           </div>
