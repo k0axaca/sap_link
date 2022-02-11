@@ -100,14 +100,16 @@ const Navbar = (props) => {
             <Link to="/faq" className="navbar-item is-secondary">
               Faq
             </Link>
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Manage</a>
+            { isAuth &&
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link">Manage</a>
 
-              <div className="navbar-dropdown">
-                <Link to="/services/new" className="navbar-item">Create Ad</Link>
-                <Link to="/services/me" className="navbar-item">Your Ads</Link>
+                <div className="navbar-dropdown">
+                  <Link to="/services/new" className="navbar-item">Create Ad</Link>
+                  <Link to="/services/me" className="navbar-item">Your Ads</Link>
+                </div>
               </div>
-            </div>
+            }
             {!isAuth && (
               <React.Fragment>
                 <Link

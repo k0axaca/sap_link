@@ -1,17 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import withAuthorization from '../../components/hoc/withAuthorization'
 import { fetchUserServices } from '../../actions'
 
 class UserServices extends React.Component {
 
-  // componentDidMount() {
-  //   const { auth: { user } } = this.props
-
-  //   fetchUserServices(user.uid).then(services => {
-  //     alert(JSON.stringify(services))
-  //   })
-  // }
-
+  componentDidMount() {
+    const { auth: { user }, dispatch } = this.props
+    dispatch(fetchUserServices(user.uid))
+  }
 
   render() {
     return (
@@ -26,4 +23,5 @@ class UserServices extends React.Component {
   }
 }
 
-export default withAuthorization(UserServices)
+
+export default withAuthorization(connect()(UserServices))
