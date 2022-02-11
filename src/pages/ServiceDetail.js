@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions';
 import Spinner from '../components/Spinner';
+import Modal from '../components/Modal';
 
 const ServiceDetail = props => {
 
@@ -10,8 +11,6 @@ const ServiceDetail = props => {
   const { dispatch, isFetching } = props;
 
   useEffect(() => {
-    // dispatch(resetPreviousService());
-    // dispatch(requestService())
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
 
@@ -41,24 +40,13 @@ const ServiceDetail = props => {
                   {service.description}
               </h2>
               <br />
-              <p className="has-text-centered">
-                <button className="button is-medium is-info is-outlined">
-                  Learn more
-                </button>
-              </p>
+              <div className="has-text-centered">
+                <Modal />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <div className="hero-foot">
-        <div className="container">
-          <div className="tabs is-centered">
-            <ul>
-              <li><a>And this is the bottom</a></li>
-            </ul>
-          </div>
-        </div>
-      </div> */}
   </section> 
   );
 }
