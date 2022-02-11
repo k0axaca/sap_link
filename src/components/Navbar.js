@@ -1,8 +1,8 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
-
 import React from "react";
 import { Link } from "react-router-dom";
+import ReceivedMessages from "./ReceivedMessages";
 
 const Navbar = (props) => {
   const { user, isAuth } = props.auth;
@@ -101,43 +101,74 @@ const Navbar = (props) => {
               Faq
             </Link>
             { isAuth &&
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link">Manage</a>
-
-                <div className="navbar-dropdown">
-                  <Link to="/services/new" className="navbar-item">Create Ad</Link>
-                  <Link to="/services/me" className="navbar-item">Your Ads</Link>
+              <React.Fragment>
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link">
+                      Manage
+                  </a>
+                  <div className="navbar-dropdown">
+                    <Link 
+                      to="/services/new"
+                      className="navbar-item">
+                        Create Service
+                    </Link>
+                    <Link 
+                      to="/services/me"
+                      className="navbar-item">
+                        Your Services
+                    </Link>
+                    <Link 
+                      to="/offers/sent"
+                      className="navbar-item">
+                        Sent Offers
+                    </Link>
+                    <Link 
+                      to="/offers/received"
+                      className="navbar-item">
+                        Received Offers
+                    </Link>
+                  </div>
                 </div>
-              </div>
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link">
+                      Messages
+                  </a>
+                  <div className="navbar-dropdown navbar-dropdown-messages">
+                    { user.messages && <ReceivedMessages /> }
+                  </div>
+                </div>
+              </React.Fragment>
             }
-            {!isAuth && (
+            { !isAuth &&
               <React.Fragment>
                 <Link
                   to="/login"
-                  className="navbar-item is-secondary modal-trigger"
-                  data-modal="auth-modal"
-                >
-                  Login
+                  className="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+                    Login
                 </Link>
-                <Link to="/register" className="navbar-item">
+                <Link 
+                  to="/register"
+                  className="navbar-item">
                   <span className="button signup-button rounded secondary-btn raised">
-                    Register
+                      Register
                   </span>
                 </Link>
               </React.Fragment>
-            )}
-            {isAuth && (
-              <div onClick={logout} className="navbar-item">
+            }
+            { isAuth &&
+              <div 
+                onClick={logout}
+                className="navbar-item">
                 <span className="button signup-button is-danger rounded raised">
-                  Logout
+                    Logout
                 </span>
               </div>
-            )}
+            }
           </div>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

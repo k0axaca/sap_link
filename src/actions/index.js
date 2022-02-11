@@ -1,4 +1,4 @@
-import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS, REQUEST_SERVICE, SET_AUTH_USER, FETCH_USER_SERVICES_SUCCESS} from "../types";
+import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS, REQUEST_SERVICE, SET_AUTH_USER, FETCH_USER_SERVICES_SUCCESS, FETCH_USER_MESSAGES_SUCCESS, MARK_MESSAGE_AS_READ } from "../types";
 import * as api from "../api";
 
 // SERVICES START //
@@ -23,12 +23,10 @@ export const fetchServiceById = serviceId => dispatch => {
   dispatch({type: REQUEST_SERVICE})
   return api
     .fetchServiceById(serviceId)
-    .then(service => dispatch(
-      {
-        type: FETCH_SERVICE_SUCCESS,
-        service
-      }
-    )
+    .then(async service => {
+      service.user = await api.getUserProfile(service.user)
+      dispatch({type: FETCH_SERVICE_SUCCESS, service})
+    }
   )
 }
 
@@ -61,3 +59,11 @@ export const storeAuthUser = authUser => dispatch => {
 }
 
 // AUTH ENDS 
+
+// MESSAGES START //
+
+export const subscribeToMessages = userId => dispatch =>
+  api.subscribeToMessages(userId, 
+    messages => dispatch({type: FETCH_USER_MESSAGES_SUCCESS, messages}))
+
+export const markMessageAsRead = message => api.markMessageAsRead(message)

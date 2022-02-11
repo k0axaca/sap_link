@@ -89,6 +89,29 @@ $section-grey: #fbfbfb;
   text-align: left !important;
 }
 
+// MESSAGES //
+
+.navbar-dropdown-messages {
+  min-width: 320px !important;
+
+.from-user {
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+span {
+      font-weight: bold;
+    }
+  }
+
+hr {
+  margin: 0;
+}
+
+.navbar-item-message {
+  white-space: inherit;
+  }
+}
+
 
 /* ==========================================================================
 General Keyframes animations
