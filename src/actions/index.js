@@ -24,7 +24,11 @@ export const fetchServiceById = serviceId => dispatch => {
   return api
     .fetchServiceById(serviceId)
     .then(async service => {
-      service.user = await api.getUserProfile(service.user)
+      // service.user = await api.getUserProfile(service.user)
+      const user = await service.user.get()
+      service.user = user.data()
+      service.user.id = user.id
+
       dispatch({type: FETCH_SERVICE_SUCCESS, service})
     }
   )
@@ -32,7 +36,7 @@ export const fetchServiceById = serviceId => dispatch => {
 
 export const createService = (newService, userId) => {
   newService.price = parseInt(newService.price, 10)
-  newService.user = userId
+  newService.user = api.createRef('profiles', userId)
 
   return api.createService(newService)
 }
@@ -59,6 +63,14 @@ export const storeAuthUser = authUser => dispatch => {
 }
 
 // AUTH ENDS 
+
+// OFFERS START
+
+export const createOffer = offer => api.createOffer(offer)
+
+export const createRef = (collection, docId) => api.createRef(collection, docId)
+
+// OFFERS END
 
 // MESSAGES START //
 

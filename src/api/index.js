@@ -73,6 +73,8 @@ export const getUserProfile = uid =>
     .get()
     .then(snapshot => ({uid, ...snapshot.data()}))
 
+export const createRef = (collection, docId) => db.doc(`${collection}/` + docId) 
+
 // --------- AUTH END ----------
 
 // --------- MESSAGES ----------
@@ -99,4 +101,8 @@ export const subscribeToMessages = (userId, callback) =>
     .collection('messages')
     .doc(message.id)
     .update({isRead: true})
+
+// OFFERS START
+
+export const createOffer = offer => db.collection('offers').add(offer)
 
