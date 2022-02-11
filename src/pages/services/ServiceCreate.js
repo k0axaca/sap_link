@@ -43,11 +43,11 @@ const ServiceCreate = ({ auth }) => {
               <div className="control">
                 <div className="select">
                   <select name="category" onChange={handleChange}>
-                    <option value="mathematics">Mathematics</option>
-                    <option value="programming">Programming</option>
-                    <option value="painting">Painting</option>
-                    <option value="singing">Singing</option>
-                    <option value="english">English</option>
+                    <option value="plants">Plants</option>
+                    <option value="materials">Seeds</option>
+                    <option value="materials">Materials</option>
+                    <option value="services">Services</option>
+                    <option value="misc">Miscellaneous</option>
                   </select>
                 </div>
               </div>
@@ -85,13 +85,13 @@ const ServiceCreate = ({ auth }) => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Price per Hour</label>
+              <label className="label">Requested Trade</label>
               <div className="control">
                 <input
                   onChange={handleChange}
                   name="price"
                   className="input"
-                  type="number"
+                  type="text"
                   placeholder="Text input" />
               </div>
             </div>
