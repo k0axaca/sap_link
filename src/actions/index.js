@@ -1,6 +1,7 @@
 import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS, REQUEST_SERVICE, SET_AUTH_USER} from "../types";
 import * as api from "../api";
 
+// SERVICES START //
 export const fetchServices = () => dispatch =>
    api
     .fetchServices()
@@ -27,6 +28,17 @@ export const fetchServiceById = serviceId => dispatch => {
   )
 }
 
+export const createService = (newService, userId) => {
+  newService.price = parseInt(newService.price, 10)
+  newService.user = userId
+
+  return api.createService(newService)
+}
+
+// SERVICES END //
+
+// AUTH STARTS//
+
 export const register = (registerFormData) => api.register({...registerFormData})
 export const login = loginData => api.login({...loginData})
 export const onAuthStateChanged = onAuthCallback => api.onAuthStateChanged(onAuthCallback)
@@ -44,3 +56,4 @@ export const storeAuthUser = authUser => dispatch => {
   }
 }
 
+// AUTH ENDS 

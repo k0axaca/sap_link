@@ -101,12 +101,11 @@ const Navbar = (props) => {
               Faq
             </Link>
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Dropdown</a>
+              <a className="navbar-link">Manage</a>
 
               <div className="navbar-dropdown">
-                <a className="navbar-item">Dropdown item</a>
-                <a className="navbar-item">Dropdown item</a>
-                <a className="navbar-item">Dropdown item</a>
+                <Link to="/services/new" className="navbar-item">Create Ad</Link>
+                <Link to="/services/me" className="navbar-item">Your Ads</Link>
               </div>
             </div>
             {!isAuth && (

@@ -2,23 +2,34 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import db from '../config/db';
 
-export const fetchServiceById = serviceId =>
+// --------- SERVICES ----------
+
+export const fetchServiceById = serviceId => 
   db.collection('services')
     .doc(serviceId)
     .get()
-    .then(snapshot => ({...snapshot.data(), id: snapshot.id}))  
+    .then(snapshot => ({id: snapshot.id, ...snapshot.data()}))
 
-export const fetchServices = () => {
-  return db
-    .collection('services')
+
+export const fetchServices = () => 
+  db.collection('services')
     .get()
     .then(snapshot => {
       const services = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
       return services
-  })
+    })
+
+export const createService = newService => {
+  return db
+    .collection('services')
+    .add(newService)
+    .then(docRef => docRef.id)
 }
 
-// AUTH //
+// --------- SERVICES END ----------
+
+
+// --------- AUTH ----------
 
 const createUserProfile = (userProfile) => 
   db.collection('profiles')
@@ -41,16 +52,16 @@ export const login = ({email, password}) =>
   firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(error => Promise.reject(error.message))
 
+export const logout = () => firebase.auth().signOut()
+
 export const onAuthStateChanged = onAuthCallback => 
   firebase.auth().onAuthStateChanged(onAuthCallback)
+
 
 export const getUserProfile = uid =>
   db.collection('profiles')
     .doc(uid)
     .get()
     .then(snapshot => ({uid, ...snapshot.data()}))
-
-export const logout = () => firebase.auth().signOut()
-
 
 
