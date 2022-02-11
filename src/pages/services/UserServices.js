@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import withAuthorization from '../../components/hoc/withAuthorization'
 import { fetchUserServices } from '../../actions'
+import ServiceItem from '../../components/service/ServiceItem'
 
 class UserServices extends React.Component {
 
@@ -10,12 +11,22 @@ class UserServices extends React.Component {
     dispatch(fetchUserServices(user.uid))
   }
 
+
   render() {
+    const { services } = this.props
     return (
       <div className="container">
         <div className="content-wrapper">
-          <div className="columns">
-            I am UserServices PAGE!
+          <h1 className="title">Your Services</h1>
+          <div className="columns is-multiline">
+            {
+              services.map(s => (
+                <div key={s.id} className="column">
+                  <ServiceItem service={s} />
+                </div>
+                )
+              )
+            }
           </div>
         </div>
       </div>
@@ -23,5 +34,7 @@ class UserServices extends React.Component {
   }
 }
 
+const mapStateToProps = ({user}) => ({services: user.services})
 
-export default withAuthorization(connect()(UserServices))
+
+export default withAuthorization(connect(mapStateToProps)(UserServices))
