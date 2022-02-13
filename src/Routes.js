@@ -10,9 +10,13 @@ import RegisterPage from './pages/Register'
 import SecretPage from "./pages/Secret";
 import ServiceCreatePage from './pages/services/ServiceCreate';
 import UserServicesPage from "./pages/services/UserServices";
+import MessagePage from "./pages/Messagepage";
 
 const Routes = () => (
   <Switch>
+    <Route path="/message/:myuserid/:senderId">
+      <MessagePage />
+    </Route>
     <Route path="/register">
       <RegisterPage />
     </Route>

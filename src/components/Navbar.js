@@ -134,7 +134,7 @@ const Navbar = (props) => {
                       Messages
                   </a>
                   <div className="navbar-dropdown navbar-dropdown-messages">
-                    { user.messages && <ReceivedMessages /> }
+                     <ReceivedMessages user={user} /> 
                   </div>
                 </div>
               </React.Fragment>

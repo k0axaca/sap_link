@@ -1,50 +1,51 @@
-import { connect } from 'react-redux'
-import { getMessages } from '../reducers'
-import { Link } from 'react-router-dom'
-import { markMessageAsRead } from '../actions'
-
-const ReceivedMessages = ({dispatch, messages}) => {
+import {useEffect,useState} from "react"
+import db from "../config/db"
+import { Link } from "react-router-dom";
 
 
-  const handleMessageAsRead = message => {
-    markMessageAsRead(message)
+const _renderLastMesssage = (message,user,detailsOfSender) =>{
+  const lastMessage = message[message.length-1];
+  const [name,msg] = lastMessage.split(":");
+  console.log("CHAT",user,name,detailsOfSender)
+  const SenderId = detailsOfSender.users.filter((e)=> e != user.uid);
+  console.log("CHAT",SenderId)
+  if(user.fullName == name.toLowerCase()){
+    return <></>;
   }
-
-  const renderMessages = messages => {
-    
-    const filteredMessages = messages.filter(m => !m.isRead).map(message => (
-        <div key={message.id}>
-          <div className="from-user">
-            <span>From: </span>{message.fromUser.name}
-          </div>
-          <hr />
-          <div className="navbar-item navbar-item-message">
-            <div>
-              { message.text }
-            </div>
-            <Link onClick={() => {}} to={message.cta}>
-              <div className="button is-success">Join</div>
-            </Link>
-            <button
-              onClick={() => handleMessageAsRead(message)}
-              className="button is-warning">Later</button>
-          </div>
-        </div>
-      )
-    )
-
-    if (filteredMessages.length === 0) {
-      return <div className="navbar-item">No Messages :(</div>
-    }
-
-    return filteredMessages
-  }
-
-
-  return renderMessages(messages)
+  return (
+    <Link to={`/message/${user.uid}/${SenderId[0]}`}>
+        <h1 style={{fontWeight:"bold"}}>{name}</h1>
+        <p>{msg}</p>
+    </Link>
+  )
+  //Kristina: Hi!
 }
 
+const RenderMessages = ({user}) => {
+  let [fireStoreMessages, setFirestoreMessages] =useState([]);
 
-const mapStateToProps = (state) => ({messages: getMessages(state)})
+  useEffect(()=>{
+    console.log("called",user)
+    
 
-export default connect(mapStateToProps)(ReceivedMessages)
+    //collection Messages -> docs -> users["kristina","mustafa"]
+    db.collection("messages").where("users","array-contains",user.uid).onSnapshot((res)=>{
+      setFirestoreMessages(res.docs)
+    })
+  },[])
+  
+
+  if(fireStoreMessages.length == 0){
+    return <div className="navbar-item">No Messages :(</div>
+  }else{
+  return (
+      <div>
+        {
+          fireStoreMessages?.map((ele)=>_renderLastMesssage(ele.data().chat,user,ele.data()))
+        }
+      </div>
+    )
+  }
+  }
+
+  export default RenderMessages;
