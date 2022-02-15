@@ -9,7 +9,7 @@ const _renderLastMesssage = (message,user,detailsOfSender) =>{
   console.log("CHAT",user,name,detailsOfSender)
   const SenderId = detailsOfSender.users.filter((e)=> e != user.uid);
   console.log("CHAT",SenderId)
-  if(user.fullName == name.toLowerCase()){
+  if(user.fullName == name){
     return <></>;
   }
   return (
