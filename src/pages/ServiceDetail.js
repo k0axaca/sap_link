@@ -20,7 +20,7 @@ const ServiceDetail = props => {
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
   useEffect(()=>{
-    settingRecieverId(props.service.id)
+    settingRecieverId(props.service.user.uid)
     if(userid){
       console.log("show",userid)
       db.collection("profiles").where("uid","==",userid).get().then((e)=>{
