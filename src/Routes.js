@@ -11,9 +11,13 @@ import SecretPage from "./pages/Secret";
 import ServiceCreatePage from './pages/services/ServiceCreate';
 import UserServicesPage from "./pages/services/UserServices";
 import MessagePage from "./pages/Messagepage";
+import Inbox from "./pages/Inbox";
 
 const Routes = () => (
   <Switch>
+    <Route path="/inbox/:userid/:userName">
+      <Inbox />
+    </Route>
     <Route path="/message/:userName/:myuserid/:senderId">
       <MessagePage />
     </Route>

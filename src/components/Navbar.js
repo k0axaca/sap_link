@@ -127,6 +127,11 @@ const Navbar = (props) => {
                       className="navbar-item">
                         Received Offers
                     </Link>
+                    <Link 
+                      to={`/inbox/${user.uid}/${user.fullName}`}
+                      className="navbar-item">
+                        Inbox
+                    </Link>
                   </div>
                 </div>
                 <div className="navbar-item has-dropdown is-hoverable">

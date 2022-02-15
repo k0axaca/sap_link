@@ -10,6 +10,13 @@ const MessagePage = () =>{
    
     useEffect(()=>{
         db.collection("messages").where("users","array-contains-any",[myuserid,senderId]).onSnapshot((res)=>{
+            //for the new users that they haven't talked before
+            if(res.docs.length == 0){
+                db.collection("messages").set({
+                    users:[myuserid,senderId],
+                    chat:[]
+                })
+            }
             res.docs.map((el)=>{
                 setDetails(el.data())
                 setDocId(el.id)

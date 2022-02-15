@@ -1,20 +1,27 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React,{ useEffect } from 'react';
+import { useParams,Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions';
 import Spinner from '../components/Spinner';
 import OfferModal from '../components/service/OfferModal';
 
+
 const ServiceDetail = props => {
 
   const { serviceId } = useParams();
   const { dispatch, isFetching } = props;
+  let [recieverId, settingRecieverId] = React.useState()
 
   useEffect(() => {
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
+  useEffect(()=>{
+    settingRecieverId(props.service.id)
+    
+  },[props])
 
   const { service } = props;
+  console.log("props",props)
 
   if (isFetching || serviceId !== service.id) {
     return <Spinner />;
@@ -41,6 +48,10 @@ const ServiceDetail = props => {
               <div className="has-text-centered">
                 <OfferModal service={service}/>
               </div>
+              <div>
+               {recieverId ?  <Link to={`/message/${service.user.fullName}/${service.user.uid}/${recieverId}`}>Contact a Seller</Link>:<></>}
+              </div>
+
             </div>
           </div>
         </div>
