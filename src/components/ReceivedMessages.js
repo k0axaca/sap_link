@@ -13,7 +13,7 @@ const _renderLastMesssage = (message,user,detailsOfSender) =>{
     return <></>;
   }
   return (
-    <Link to={`/message/${user.uid}/${SenderId[0]}`}>
+    <Link to={`/message/${user.fullName}/${user.uid}/${SenderId[0]}`}>
         <h1 style={{fontWeight:"bold"}}>{name}</h1>
         <p>{msg}</p>
     </Link>

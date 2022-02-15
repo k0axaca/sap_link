@@ -14,7 +14,7 @@ import MessagePage from "./pages/Messagepage";
 
 const Routes = () => (
   <Switch>
-    <Route path="/message/:myuserid/:senderId">
+    <Route path="/message/:userName/:myuserid/:senderId">
       <MessagePage />
     </Route>
     <Route path="/register">
