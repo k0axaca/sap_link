@@ -12,15 +12,17 @@ const ServiceDetail = props => {
 
   const { serviceId } = useParams();
   const { dispatch, isFetching } = props;
-  let [recieverId, settingRecieverId] = React.useState("")
+
   let [userid, setuserid] = React.useState("");
   let [userFullName,setUserFullName] = React.useState("");
 
   useEffect(() => {
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
+ 
+
   useEffect(()=>{
-    settingRecieverId(props.service.user.uid)
+    
     if(userid){
       console.log("show",userid)
       db.collection("profiles").where("uid","==",userid).get().then((e)=>{
@@ -28,7 +30,9 @@ const ServiceDetail = props => {
       })
     }
     
-  },[props,userid])
+  },[userid])
+
+
   if(!userid){
     onAuthStateChanged((res)=>{
       setuserid(res.uid);
@@ -67,7 +71,7 @@ const ServiceDetail = props => {
                 <OfferModal service={service}/>
               </div>
               <div>
-               {recieverId  ?  <Link to={`/message/${userFullName}/${userid}/${recieverId}`}>Contact a Seller</Link>:<></>}
+               {<Link to={`/message/${userFullName}/${userid}/${props.service.user.uid}`}>Contact a Seller</Link>}
               </div>
 
             </div>
