@@ -4,21 +4,37 @@ import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions';
 import Spinner from '../components/Spinner';
 import OfferModal from '../components/service/OfferModal';
+import {onAuthStateChanged} from "../api/index"
+import db from "../config/db"
 
 
 const ServiceDetail = props => {
 
   const { serviceId } = useParams();
   const { dispatch, isFetching } = props;
-  let [recieverId, settingRecieverId] = React.useState()
+  let [recieverId, settingRecieverId] = React.useState("")
+  let [userid, setuserid] = React.useState("");
+  let [userFullName,setUserFullName] = React.useState("");
 
   useEffect(() => {
     dispatch(fetchServiceById(serviceId));
   }, [serviceId, dispatch]);
   useEffect(()=>{
     settingRecieverId(props.service.id)
+    if(userid){
+      console.log("show",userid)
+      db.collection("profiles").where("uid","==",userid).get().then((e)=>{
+        e.docs.map((el)=>setUserFullName(el.data().fullName))
+      })
+    }
     
-  },[props])
+  },[props,userid])
+  if(!userid){
+    onAuthStateChanged((res)=>{
+      setuserid(res.uid);
+    })
+  }
+ 
 
   const { service } = props;
   console.log("props",props)
@@ -26,6 +42,8 @@ const ServiceDetail = props => {
   if (isFetching || serviceId !== service.id) {
     return <Spinner />;
   }
+
+  console.log("props",props)
   
   return (
     <section className="hero is-fullheight is-default is-bold">
@@ -49,7 +67,7 @@ const ServiceDetail = props => {
                 <OfferModal service={service}/>
               </div>
               <div>
-               {recieverId ?  <Link to={`/message/${service.user.fullName}/${service.user.uid}/${recieverId}`}>Contact a Seller</Link>:<></>}
+               {recieverId  ?  <Link to={`/message/${userFullName}/${userid}/${recieverId}`}>Contact a Seller</Link>:<></>}
               </div>
 
             </div>

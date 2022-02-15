@@ -7,20 +7,51 @@ const MessagePage = () =>{
     let [getDetails,setDetails] = React.useState();
     let [userMessage,setUserMessage] = React.useState("");
     let [docId, setDocId] = React.useState();
+    //array-contains-any
+    //myuserid,senderId
    
     useEffect(()=>{
-        db.collection("messages").where("users","array-contains-any",[myuserid,senderId]).onSnapshot((res)=>{
+        db.collection("messages").where("users","array-contains-any",[myuserid]).onSnapshot((res)=>{
             //for the new users that they haven't talked before
-            if(res.docs.length == 0){
-                db.collection("messages").set({
-                    users:[myuserid,senderId],
-                    chat:[]
-                })
-            }
+            console.log("checker",res.docs.length ,res)
+            var counter = 0;
+            var result=false;
             res.docs.map((el)=>{
-                setDetails(el.data())
-                setDocId(el.id)
+                if(el.data().users.includes(senderId)){
+                    setDetails(el.data())
+                    setDocId(el.id)
+                    result=true;
+                }
+                counter++;
             })
+            if(counter==res.docs.length){
+                console.log("checker",true)
+                if(result == false){
+                    db.collection("messages").add({
+                                users:[myuserid,senderId],
+                                chat:[""]
+                            }).then((id)=>{
+                                setDocId(id.id)
+                            })
+                }
+            }
+            // if(res.docs.length === 0){
+            //     // var random = Math.random()*10000;
+            //     // db.collection("messages").doc(random).set({
+            //     //     users:[myuserid,senderId],
+            //     //     chat:[""]
+            //     // }).then((res)=>{
+            //     //     setDocId(random)
+            //     // })
+                    
+                
+            // }else{
+                
+            //     res.docs.map((el)=>{
+            //         setDetails(el.data())
+            //         setDocId(el.id)
+            //     })
+            // }
 
         })
     },[])
@@ -41,13 +72,23 @@ const MessagePage = () =>{
 
     const sendHandler = () =>{
        
-        var Tempchat = getDetails.chat;
-        Tempchat.push(`${userName}:${userMessage}`);
-        setUserMessage("");
-        db.collection("messages").doc(docId).update({ chat:Tempchat}).then(()=>{
-        }).catch(()=>{
-            alert("Sorry there was an error!")
-        })
+        if(getDetails?.chat?.length){
+            var Tempchat = getDetails.chat;
+            Tempchat.push(`${userName}:${userMessage}`);
+            setUserMessage("");
+            db.collection("messages").doc(docId).update({ chat:Tempchat}).then(()=>{
+            }).catch(()=>{
+                alert("Sorry there was an error!")
+            })
+        }else{
+            var Tempchat2 = [`${userName}:${userMessage}`];
+            setUserMessage("");
+            db.collection("messages").doc(docId).update({ chat:Tempchat2}).then(()=>{
+            }).catch(()=>{
+                alert("Sorry there was an error!")
+            })
+        }
+        
 
     }
 
