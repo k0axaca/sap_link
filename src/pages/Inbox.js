@@ -50,9 +50,11 @@ const Inbox = () =>{
         
         
             return (
-              <Link to={`/message/${user.fullName}/${user.uid}/${SenderId[0]}`}>
+              <Link className="inbox" to={`/message/${user.fullName}/${user.uid}/${SenderId[0]}`}>
+                <div className="inbox-content">
                   <h1 style={{fontWeight:"bold"}}>{fullNames[0].fullName}</h1>
                   <p>{msg}</p>
+                </div>
               </Link>
             )
         

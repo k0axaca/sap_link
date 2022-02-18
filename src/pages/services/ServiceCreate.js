@@ -9,7 +9,7 @@ const ServiceCreate = ({ auth }) => {
   const [ redirect, setRedirect ] = useState(false);
 
   const [ serviceForm, setServiceForm ] = useState({
-    category: 'mathematics',
+    category: '',
     title: '',
     description: '',
     image: '',
@@ -44,7 +44,7 @@ const ServiceCreate = ({ auth }) => {
                 <div className="select">
                   <select name="category" onChange={handleChange}>
                     <option value="plants">Plants</option>
-                    <option value="materials">Seeds</option>
+                    <option value="seeds">Seeds</option>
                     <option value="materials">Materials</option>
                     <option value="services">Services</option>
                     <option value="misc">Miscellaneous</option>

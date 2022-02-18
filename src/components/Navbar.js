@@ -94,12 +94,6 @@ const Navbar = (props) => {
             <Link to="/" className="navbar-item is-secondary">
               Home
             </Link>
-            <Link to="/services" className="navbar-item is-secondary">
-              Services
-            </Link>
-            <Link to="/faq" className="navbar-item is-secondary">
-              Faq
-            </Link>
             { isAuth &&
               <React.Fragment>
                 <div className="navbar-item has-dropdown is-hoverable">
@@ -110,28 +104,14 @@ const Navbar = (props) => {
                     <Link 
                       to="/services/new"
                       className="navbar-item">
-                        Create Service
+                        Create an Ad
                     </Link>
                     <Link 
                       to="/services/me"
                       className="navbar-item">
-                        Your Services
+                        Your Ads
                     </Link>
-                    <Link 
-                      to="/offers/sent"
-                      className="navbar-item">
-                        Sent Offers
-                    </Link>
-                    <Link 
-                      to="/offers/received"
-                      className="navbar-item">
-                        Received Offers
-                    </Link>
-                    <Link 
-                      to={`/inbox/${user.uid}/${user.fullName}`}
-                      className="navbar-item">
-                        Inbox
-                    </Link>
+                    
                   </div>
                 </div>
                 <div className="navbar-item has-dropdown is-hoverable">
@@ -140,6 +120,13 @@ const Navbar = (props) => {
                   </a>
                   <div className="navbar-dropdown navbar-dropdown-messages">
                      <ReceivedMessages user={user} /> 
+                  </div>
+                  <div className="navbar-dropdown navbar-dropdown-messages">
+                  <Link 
+                      to={`/inbox/${user.uid}/${user.fullName}`}
+                      className="navbar-item">
+                        Inbox
+                    </Link>
                   </div>
                 </div>
               </React.Fragment>

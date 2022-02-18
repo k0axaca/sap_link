@@ -70,9 +70,9 @@ const ServiceDetail = props => {
               <div className="has-text-centered">
                 <OfferModal service={service}/>
               </div>
-              <div>
-               {<Link to={`/message/${userFullName}/${userid}/${props.service.user.uid}`}>Contact a Seller</Link>}
-              </div>
+              <button type='button' className='button is-medium is-info is-outlined' id='contact-btn'> 
+               {<Link to={`/message/${userFullName}/${userid}/${props.service.user.uid}`}>Contact Seller</Link>}
+              </button>
 
             </div>
           </div>

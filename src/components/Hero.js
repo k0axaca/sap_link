@@ -11,8 +11,7 @@ const Hero = () => {
                 Grow your plant collection and trade with other plant lovers.
               </h1>
               <h2 className="subtitle is-5 is-muted">
-                Lorem ipsum sit dolor amet is a dummy text used by typography
-                industry{" "}
+                It's easy as pie. Do you have plants you can part with? Create an ad! Are you looking to acquire more plants? Browse through the ads to find a new plant baby to love! {" "}
               </h2>
               <p>
                 <a className="button cta rounded primary-btn raised">

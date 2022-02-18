@@ -37,27 +37,25 @@ const OfferModal = ({ service }) => {
           max="5"
           min="0"
         />
-        <p className="help">Note can increase chance of getting the service</p>
+        <p className="help">Notes can get your request noticed</p>
       </div>
       <div className="field">
         <input
           onChange={handleChange}
           name="time"
           className="input is-large"
-          type="number"
-          placeholder="How long you need service for ?"
-          max="5"
-          min="0"
+          type="textr"
+          placeholder="What would you like to trade?"
         />
-        <p className="help">Enter time in hours</p>
+        <p className="help">Enter trade</p>
       </div>
       <div className="service-price has-text-centered">
-        <div className="service-price-title">
+        {/* <div className="service-price-title">
           Upon acceptance {service.user.fullName} will charge you:
         </div>
         <div className="service-price-value">
           <h1 className="title">{offer.price}$</h1>
-        </div>
+        </div> */}
       </div>
     </Modal>
   );
