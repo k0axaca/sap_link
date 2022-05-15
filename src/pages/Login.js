@@ -40,7 +40,7 @@ const Login = () => {
           <p className="subtitle has-text-grey">Please login to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="https://via.placeholder.com/128x128" alt=""/>
+              <img src="https://a.wattpad.com/useravatar/cibritini.256.940583.jpg" alt="photo of sunflowers"/>
             </figure>
             <form onSubmit={handleSubmit(onLogin)}>
               <div className="field">

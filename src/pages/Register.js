@@ -31,7 +31,7 @@ const Register = (props) => {
           <p className="subtitle has-text-grey">Please Register to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="https://via.placeholder.com/128x128" alt="Company Logo" />
+              <img src="https://a.wattpad.com/useravatar/cibritini.256.940583.jpg" alt="sunflowers" />
             </figure>
             <RegisterForm onRegister={registerUser} />
           </div>
