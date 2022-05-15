@@ -109,7 +109,7 @@ const Login = () => {
           </div>
           <p className="has-text-grey">
             <a>Sign In With Google</a>&nbsp;
-            <a href="/">Sign Up</a> &nbsp;·&nbsp;
+            <a href="/register">Sign Up</a> &nbsp;·&nbsp;
             <a href="../">Need Help?</a>
           </p>
         </div>
