@@ -56,11 +56,11 @@ Saplink is still in progress. `Version 2` will integrate an updated chat UI and 
 
 ## Reflection
 
-  - What was the context for this project? This was my capstone project for Ada Developers Academy. I spent several weeks formulating the project by creating wirefreames, researching, making and updating a kanban board, deciding MVPs, attending daily standups with folks using a similar tech stack, coding, and refining my the scope of the project due to limited time. 
-  - What did you set out to build? I set out to build a simple, intuitive SPA for plant lovers to trade and grow their plant collection. Users can make offers and chat in real-time with others. 
-  - Why was this project challenging and therefore a really good learning experience? Many MVPs took longer than anticipated, whle others were surprisingly easy to implement. I think the hardest part was paring down the project due since I had so many features I wanted to add. 
-  - What were some unexpected obstacles? The chat funcionality was surprisingly difficult to implement. I ended up collaborating with a friend to get it working properly. 
-  - What did were the main takeaways and learnings from the project? Organization is key! I found that organzing all of the subtasks using a kanban board was extremely helpful. Although I did set timelines for various MVPs, it was important to be flexible and adapt when more research was needed. I wanted to use React because my understanding of using hooks and props was not solid before this project and this allowed me to spend extra time on these topics. While using Classes in React is considered somewhat outdated, I chose to use them in a few instances because my current position at Salesforce uses Classes. 
+This was my capstone project for Ada Developers Academy. I set out to build a simple, intuitive SPA for plant lovers to trade and grow their plant collection. Users can make offers and chat in real-time with others. I spent several weeks formulating the project by creating wirefreames, researching, making and updating a kanban board, deciding MVPs, attending daily standups with folks using a similar tech stack, coding, and refining my the scope of the project. 
+
+Many MVPs took longer than anticipated, whle others were surprisingly easy to implement. I think the hardest part was paring down the project due since I had so many features I wanted to add. The chat funcionality was surprisingly difficult to implement. I ended up collaborating with a friend to get it working properly. 
+
+Throughout this project I learned that organization is key. I found that organzing all of the subtasks using a kanban board was extremely helpful. Although I did set timelines for various MVPs, it was important to be flexible and adapt when more research was needed. I wanted to use React because my understanding of using hooks and props was not solid before this project and this allowed me to spend extra time on these topics and gain a deeper understanding. While using Classes in React is considered somewhat outdated, I chose to use them in a few instances because my current position at Salesforce uses this syntax. 
 
 ## Credits
 List of contributors:
