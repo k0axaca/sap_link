@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Saplink
+An app to connect plant lovers to trade cuttings, seeds, and other garden materials. 
+
+## Demo link:
+In-progress. Check back May 17th, 2022.
+
+## Table of Content:
+
+- [About The App](#about-the-app)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Status](#status)
+- [Reflection](#reflection)
+- [Credits](#credits)
+- [License](#license)
+
+## About The App
+Saplink is a user-friendly React app designed to connect plant lovers with the common goal of growing one's plant collection through the trading of seeds, cuttings, and other gardening material. Saplink reminds users of the abundance of nature. There is enough to go around, and through community, we can grow together. Users can register, create ads, chat in real-time with other users, and make offers on ads. 
+
+## Screenshots
+
+Form Validation with Authentication and Conditional Routing <br>
+![Kapture 2022-05-16 at 13 52 45](https://user-images.githubusercontent.com/55802241/168655626-7456235e-b77b-4da0-a644-a8497c36cfff.gif)
+
+
+## Technologies
+I used `ReactJS`, `html`, `sass`, `css`, `React-Redux`, `React-Router`, `JQuery`, `Google Firestore`
+
+## Setup
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-In the project directory, you can run:
+Installation:
 
-### `npm start`
+`npm install`  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To Run Test Suite:  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npm test`  
 
-### `npm test`
+To Start Server:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`  
 
-### `npm run build`
+To Visit App:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`localhost:3000`  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Status
+Saplink is still in progress. `Version 2` will integrate an updated chat UI and the trade feature will be completed. I will also add the ability to delete ads once items are no longer available. Additionally, I will add an API that will allow users to search for different plants and it will display care instructions. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Reflection
 
-### `npm run eject`
+  - What was the context for this project? This was my capstone project for Ada Developers Academy. I spent several weeks formulating the project by creating wirefreames, researching, making and updating a kanban board, deciding MVPs, attending daily standups with folks using a similar tech stack, coding, and refining my the scope of the project due to limited time. 
+  - What did you set out to build? I set out to build a simple, intuitive SPA for plant lovers to trade and grow their plant collection. Users can make offers and chat in real-time with others. 
+  - Why was this project challenging and therefore a really good learning experience? Many MVPs took longer than anticipated, whle others were surprisingly easy to implement. I think the hardest part was paring down the project due since I had so many features I wanted to add. 
+  - What were some unexpected obstacles? The chat funcionality was surprisingly difficult to implement. I ended up collaborating with a friend to get it working properly. 
+  - What did were the main takeaways and learnings from the project? Organization is key! I found that organzing all of the subtasks using a kanban board was extremely helpful. Although I did set timelines for various MVPs, it was important to be flexible and adapt when more research was needed. I wanted to use React because my understanding of using hooks and props was not solid before this project and this allowed me to spend extra time on these topics. While using Classes in React is considered somewhat outdated, I chose to use them in a few instances because my current position at Salesforce uses Classes. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Credits
+List of contributors:
+- Mustafa Shaikh helped with the real-time chat module. Github: @TheMustafaShaikh
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+MIT license 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
