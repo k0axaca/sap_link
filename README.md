@@ -27,7 +27,7 @@ Ad and live-chat feature -- data persistence is facilitated by Google Firestore 
 ![Kapture 2022-05-16 at 14 43 33](https://user-images.githubusercontent.com/55802241/168661340-4b767e33-9954-4526-8ce2-fc3e8a33ac1e.gif)
 
 ## Technologies
-I used `ReactJS`, `html`, `sass`, `css`, `React-Redux`, `React-Router`, `JQuery`, `Google Firestore`
+I used `ReactJS`, `sass`, `React-Redux`, `React-Router`, `JQuery`, `Google Firestore`
 
 ## Setup
 
