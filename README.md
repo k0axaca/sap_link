@@ -64,7 +64,7 @@ Throughout this project I learned that organization is key. I found that organzi
 
 ## Credits
 List of contributors:
-- Mustafa Shaikh helped with the real-time chat module. Github: @TheMustafaShaikh
+- Mustafa Shaikh helped with the real-time chat module. Github: [@TheMustafaShaikh](https://github.com/TheMustafaShaikh)
 
 ## License
 
