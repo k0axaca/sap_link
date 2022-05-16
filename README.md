@@ -1,5 +1,5 @@
 # Saplink
-An app to connect plant lovers to trade cuttings, seeds, and other garden materials. 
+Saplink is an app for plant lovers to trade cuttings, seeds, and other garden materials. 
 
 ## Demo link:
 In-progress. Check back May 17th, 2022.
