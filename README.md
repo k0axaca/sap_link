@@ -52,7 +52,7 @@ To Visit App:
 `localhost:3000`  
 
 ## Status
-Saplink is still in progress. `Version 2` will integrate an updated chat UI and the trade feature will be completed. I will also add the ability to delete ads once items are no longer available. Additionally, I will add an API that will allow users to search for different plants and it will display care instructions. 
+Saplink is still in progress. `Version 2` will integrate an updated chat UI and the trade feature will be completed. I will also add the ability to delete ads once items are no longer available. Additionally, I will add an API that will allow users to search for different plants and display care instructions. 
 
 ## Reflection
 
