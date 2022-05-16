@@ -23,6 +23,8 @@ Saplink is a user-friendly React app designed to connect plant lovers with the c
 Form Validation with Authentication and Conditional Routing <br>
 ![Kapture 2022-05-16 at 13 52 45](https://user-images.githubusercontent.com/55802241/168655626-7456235e-b77b-4da0-a644-a8497c36cfff.gif)
 
+Ad and live-chat feature -- data persistence is facilitated by Google Firestore <br>
+![Kapture 2022-05-16 at 14 43 33](https://user-images.githubusercontent.com/55802241/168661340-4b767e33-9954-4526-8ce2-fc3e8a33ac1e.gif)
 
 ## Technologies
 I used `ReactJS`, `html`, `sass`, `css`, `React-Redux`, `React-Router`, `JQuery`, `Google Firestore`
