@@ -1,4 +1,4 @@
-# Saplink
+# Saplink 🌱
 Saplink is an app for plant lovers to trade cuttings, seeds, and other garden materials. 
 
 ## Demo link:
@@ -7,7 +7,7 @@ In-progress. Check back May 17th, 2022.
 ## Table of Content:
 
 - [About The App](#about-the-app)
-- [Screenshots](#screenshots)
+- [GIFs](#GIFs)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Status](#status)
@@ -18,7 +18,7 @@ In-progress. Check back May 17th, 2022.
 ## About The App
 Saplink is a user-friendly React app designed to connect plant lovers with the common goal of growing one's plant collection through the trading of seeds, cuttings, and other gardening material. Saplink reminds users of the abundance of nature. There is enough to go around, and through community, we can grow together. Users can register, create ads, chat in real-time with other users, and make offers on ads. 
 
-## Screenshots
+## GIFs
 
 Form Validation with Authentication and Conditional Routing <br>
 ![Kapture 2022-05-16 at 13 52 45](https://user-images.githubusercontent.com/55802241/168655626-7456235e-b77b-4da0-a644-a8497c36cfff.gif)
