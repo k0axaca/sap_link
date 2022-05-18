@@ -56,7 +56,7 @@ Saplink is still in progress. `Version 2` will integrate an updated chat UI and 
 
 ## Reflection
 
-This was my capstone project for Ada Developers Academy. I set out to build a simple, intuitive SPA for plant lovers to trade and grow their plant collection. Users can make offers and chat in real-time with others. I spent several weeks formulating the project by creating wireframes, researching, making and updating a [kanban board](https://trello.com/invite/b/ibURAyzE/2f336e1bd5b25af818839b55ee93f197/saplink), deciding MVPs, attending daily standups with folks using a similar tech stack, coding, and refining my the scope of the project. 
+This was my capstone project for Ada Developers Academy. I set out to build a simple, intuitive SPA for plant lovers to trade and grow their plant collection. Users can make offers and chat in real-time with others. I spent several weeks formulating the project by creating wireframes, researching, making and updating a [kanban board](https://trello.com/invite/b/ibURAyzE/2f336e1bd5b25af818839b55ee93f197/saplink), deciding MVPs, attending daily standups with folks using a similar tech stack, coding, and refining the scope of the project. 
 
 Many MVPs took longer than anticipated, whle others were surprisingly easy to implement. The hardest part was paring down the project since I had so many features I wanted to add. The chat funcionality was surprisingly difficult to implement. I ended up collaborating with a friend to get it working properly. 
 
